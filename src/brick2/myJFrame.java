@@ -19,7 +19,7 @@ public class myJFrame extends JFrame implements ActionListener{
     Home home;
 
     myJFrame() {
-        super();
+        super("Brick Breaker");
         setLayout(new GridLayout(1,1));
         InstructionsPanel instructionPanel = new InstructionsPanel();
         init();
