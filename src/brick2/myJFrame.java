@@ -21,9 +21,10 @@ public class myJFrame extends JFrame implements ActionListener{
     myJFrame() {
         super();
         setLayout(new GridLayout(1,1));
-        
+        InstructionsPanel instructionPanel = new InstructionsPanel();
         init();
 
+        add(instructionPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1000, 1000);
         setVisible(true);
@@ -46,7 +47,7 @@ public class myJFrame extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object obj = ae.getSource();
-        if (obj == home.b3)
+        //if (obj == home.b3)
         {
             System.exit(0);
         }
