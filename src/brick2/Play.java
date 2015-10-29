@@ -7,9 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Play extends JPanel implements ActionListener{
-    
-    JButton button = new JButton("Click Me");
-    
+    private Brick[][] brickArray = new Brick[15][18];
     private int roundNum;
     private int x;
     private int y;
@@ -30,7 +28,7 @@ public class Play extends JPanel implements ActionListener{
     public Play() {
         roundNum = 0;
         
-        this.setBackground(Color.BLACK);
+        this.setBackground(Color.WHITE);
         this.setLayout(null);
         
         createComponents();
@@ -38,19 +36,21 @@ public class Play extends JPanel implements ActionListener{
         this.add(lives);
         this.add(score);
         this.add(round);
-        this.add(button);
+
         this.setVisible(true);
     }
     
     public void createComponents() {
-        lives = new JLabel();
-        score = new JLabel();
-        round = new JLabel();
+        lives = new JLabel("Lives: ");
+        score = new JLabel("Score: ");
+        round = new JLabel("Round: ");
         
-        button.setBounds(0, 1000, 75, 50);
-        button.addActionListener(this);
-        
-        lives.setBounds(x, y, width, height);
+        //lives.setBackground(Color.WHITE);
+        lives.setBounds(5, 5, 20, 20);
+        //score.setBackground(Color.WHITE);
+        score.setBounds(495, 5, 10, 5);
+        //round.setBackground(Color.WHITE);
+        round.setBounds(985, 5, 10, 5);
         
         t1 = new Timer(50, this);
         
@@ -58,6 +58,16 @@ public class Play extends JPanel implements ActionListener{
         //ball = new Ball();
         paddle = new PaddleClass();
     }
+    
+    public void createArray() {
+        for(int i = 0; i < brickArray.length; i++) {
+            for(int j = 0; j < brickArray.length + 4; j++) {
+                brickArray[i][j].add(brick);
+            }
+        }
+
+    }
+    
     
     @Override
     public void paintComponent(Graphics g) {
@@ -70,10 +80,6 @@ public class Play extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == t1) {
             repaint();
-        }
-        
-        if(e.getSource() == button) {
-            t1.start();
         }
 
     }

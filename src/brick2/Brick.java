@@ -8,6 +8,7 @@ package brick2;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.Random;
 
 /**
  *
@@ -19,21 +20,28 @@ public class Brick extends Rectangle{
     int y = 50;
     int width = 50;
     int height = 25;
-    Color color =  new Color(0, 153, 204);
+
+    Color color;
     
     
     public Brick()
     {
         super();
         
-        
     }
+    
+    public Color randomColor() {
+        color = new Color((int)(Math.random() * 219 +1), (int)(Math.random() * 219 +1), (int)(Math.random() * 219 +1));
+        
+        return color;
+    }
+    
     
     public void draw(Graphics g)
     {
         for(int x = 50; x < 950; x += 50) {
             for(y = 75; y < 450; y += 25) {
-                g.setColor(color);
+                g.setColor(randomColor());
                 g.fillRect(x, y, width, height);
                 g.setColor(Color.BLACK);
                 g.drawLine(x, y, x, y + height);
