@@ -15,7 +15,8 @@ public class Brick2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        myJFrame frame = new myJFrame();
+        // TODO code application logic here
+        myJFrame f1 = new myJFrame();
     }
     
 }
