@@ -6,21 +6,23 @@
 package brick2;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 /**
  *
  * @author eqn5039
  */
-public class PaddleClass {
+public class PaddleClass extends Rectangle{
     // create constant for the Y position of the paddle since it will only move horizontally
-    public static final int Y_POS = 0;
+    public static final int Y_POS = 900;
     
     // create var for the paddle width, set constant since it shouldn't change
-    public static final int PADDLE_WIDTH = 80;
+    public static final int PADDLE_WIDTH = 250;
     
     // create var for the paddle height, set constant
-    public static final int PADDLE_HEIGHT = 10;
+    public static final int PADDLE_HEIGHT = 30;
     
     //create var for the paddle color
     public static final Color PADDLE_COLOR = Color.black;
@@ -35,9 +37,15 @@ public class PaddleClass {
     public int playerLives;
     
     // create var for position of paddle
-    public int xPos;
+    public int xPos = 400;
     
     
+    public int getxpos(){
+        return xPos;
+    }
+    public void setxpos(int a){
+        xPos +=a;
+    }
     
     // getter and setter methods for playerScore, playerName, and playerLives
     public int getScore() {
@@ -68,12 +76,12 @@ public class PaddleClass {
     
     
     // draws the paddle
-    public void drawPaddle(Graphics2D g) {
-        
-        g.setColor(PADDLE_COLOR);
+   /* public void paintComponent(Graphics g) {
+
+     g.setColor(PADDLE_COLOR);
         g.fillRect(xPos, Y_POS, PADDLE_WIDTH, PADDLE_HEIGHT);
         g.setColor(Color.pink);
         g.drawRect(xPos, Y_POS, PADDLE_WIDTH, PADDLE_HEIGHT);
        
-    }
+    }*/
 }
