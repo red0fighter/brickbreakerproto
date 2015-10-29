@@ -79,9 +79,11 @@ public class Play extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent ke) {
         int x = ke.getKeyCode();
         if (x == KeyEvent.VK_LEFT) {
-            System.out.println("test");
+           
             int temp = paddle.getxpos();
+            System.out.println("temp:" + temp);
             if (temp > 0) {
+                 System.out.println("test");
                 paddle.setxpos(-25);
                 revalidate();
                 repaint();
